@@ -1,15 +1,24 @@
-import { GlobalStyle } from "./styles/global.ts";
-import { ThemeProvider } from "styled-components";
-import { defaultTheme } from "./styles/themes/default.ts";
+import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { RouterProvider } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+
+import { GlobalStyle } from '@/styles/global'
+import { defaultTheme } from '@/styles/themes/default'
+
+import { router } from './routes'
 
 function App() {
 
-  return (
-      <ThemeProvider theme={defaultTheme}>
-        <GlobalStyle />
-        <h1>Coffee Delivery</h1>
-      </ThemeProvider>
-  )
+    return (
+        <HelmetProvider>
+            <ThemeProvider theme={defaultTheme}>
+                <GlobalStyle />
+                <Helmet titleTemplate="%s | Coffee Delivery" />
+
+                <RouterProvider router={router} />
+            </ThemeProvider>
+        </HelmetProvider>
+    )
 }
 
 export default App
