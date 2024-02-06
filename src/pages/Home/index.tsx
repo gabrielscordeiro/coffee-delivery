@@ -1,7 +1,10 @@
+import { Container } from '@/pages/_layouts/styles'
+import { Banner } from '@/pages/Home/Banner'
+
 export function Home() {
     return (
-        <div>
-            Home
-        </div>
+        <Container>
+            <Banner />
+        </Container>
     )
 }
