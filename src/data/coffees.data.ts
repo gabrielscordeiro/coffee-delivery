@@ -117,7 +117,7 @@ export const coffeeList = [
         image: 'chocolate-quente',
         type: [
             'Special',
-            'With mildk'
+            'With milk'
         ],
         name: 'Chocolate Quente',
         description: 'Drink made with chocolate dissolved in hot milk and coffee',
