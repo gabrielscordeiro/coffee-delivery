@@ -24,7 +24,7 @@ export const coffeeList = [
         ],
         name: 'Espresso',
         description: 'Traditional coffee made with hot water and ground beans',
-        price: 9.9
+        price: 7.95
     },
     {
         id: CoffeeTypes.EXPRESSO_AMERICANO,
@@ -34,7 +34,7 @@ export const coffeeList = [
         ],
         name: 'American',
         description: 'Diluted espresso, less intense than traditional',
-        price: 9.9
+        price: 10
     },
     {
         id: CoffeeTypes.EXPRESSO_CREMOSO,
@@ -44,7 +44,7 @@ export const coffeeList = [
         ],
         name: 'Coffee Breve',
         description: 'Traditional espresso with creamy foam',
-        price: 9.9
+        price: 8.99
     },
     {
         id: CoffeeTypes.EXPRESSO_GELADO,
@@ -55,7 +55,7 @@ export const coffeeList = [
         ],
         name: 'Iced Coffee',
         description: 'Drink prepared with espresso and ice cubes',
-        price: 9.9
+        price: 9.99
     },
     {
         id: CoffeeTypes.CAFE_COM_LEITE,
@@ -66,7 +66,7 @@ export const coffeeList = [
         ],
         name: 'Cafe au Lait',
         description: 'Half and half traditional espresso with steamed milk',
-        price: 9.9
+        price: 12.49
     },
     {
         id: CoffeeTypes.LATTE,
@@ -77,7 +77,7 @@ export const coffeeList = [
         ],
         name: 'Latte',
         description: 'A shot of espresso with double the milk and creamy foam',
-        price: 9.9
+        price: 11.49
     },
     {
         id: CoffeeTypes.CAPUCCINO,
@@ -88,7 +88,7 @@ export const coffeeList = [
         ],
         name: 'Capuccino',
         description: 'Cinnamon drink made from equal doses of coffee, milk and foam',
-        price: 9.9
+        price: 11.89
     },
     {
         id: CoffeeTypes.MACCHIATO,
@@ -99,7 +99,7 @@ export const coffeeList = [
         ],
         name: 'Macchiato',
         description: 'Café Espresso mixed with some hot milk and froth',
-        price: 9.9
+        price: 9.99
     },
     {
         id: CoffeeTypes.MOCACCINO,
@@ -110,7 +110,7 @@ export const coffeeList = [
         ],
         name: 'Mocaccino',
         description: 'Espresso with chocolate syrup, little milk and foam',
-        price: 9.9
+        price: 11.39
     },
     {
         id: CoffeeTypes.CHOCOLATE_QUENTE,
@@ -121,7 +121,7 @@ export const coffeeList = [
         ],
         name: 'Hot Chocolate',
         description: 'Drink made with chocolate dissolved in hot milk and coffee',
-        price: 9.9
+        price: 9.19
     },
     {
         id: CoffeeTypes.CUBANO,
@@ -133,7 +133,7 @@ export const coffeeList = [
         ],
         name: 'Cuban',
         description: 'Iced espresso drink with rum, cream and mint',
-        price: 9.9
+        price: 8.99
     },
     {
         id: CoffeeTypes.HAVAIANO,
@@ -143,7 +143,7 @@ export const coffeeList = [
         ],
         name: 'Hawaiian',
         description: 'Sweet drink prepared with coffee and coconut milk',
-        price: 9.9
+        price: 15.99
     },
     {
         id: CoffeeTypes.ARABE,
@@ -153,7 +153,7 @@ export const coffeeList = [
         ],
         name: 'Arabic',
         description: 'Drink prepared with Arabic coffee beans and spices',
-        price: 9.9
+        price: 15.49
     },
     {
         id: CoffeeTypes.IRLANDES,
@@ -164,6 +164,6 @@ export const coffeeList = [
         ],
         name: 'Irish',
         description: 'Drink made from coffee, Irish whiskey, sugar and whipped cream',
-        price: 9.9
+        price: 14.39
     }
 ]
