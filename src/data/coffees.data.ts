@@ -22,7 +22,7 @@ export const coffeeList = [
         type: [
             'Traditional '
         ],
-        name: 'Expresso Tradicional',
+        name: 'Espresso',
         description: 'Traditional coffee made with hot water and ground beans',
         price: 9.9
     },
@@ -32,7 +32,7 @@ export const coffeeList = [
         type: [
             'Traditional'
         ],
-        name: 'Expresso Americano',
+        name: 'American',
         description: 'Diluted espresso, less intense than traditional',
         price: 9.9
     },
@@ -42,7 +42,7 @@ export const coffeeList = [
         type: [
             'Traditional'
         ],
-        name: 'Expresso Cremoso',
+        name: 'Coffee Breve',
         description: 'Traditional espresso with creamy foam',
         price: 9.9
     },
@@ -53,7 +53,7 @@ export const coffeeList = [
             'Traditional',
             'Cold'
         ],
-        name: 'Expresso Gelado',
+        name: 'Iced Coffee',
         description: 'Drink prepared with espresso and ice cubes',
         price: 9.9
     },
@@ -64,7 +64,7 @@ export const coffeeList = [
             'Traditional',
             'With mild'
         ],
-        name: 'Café com Leite',
+        name: 'Cafe au Lait',
         description: 'Half and half traditional espresso with steamed milk',
         price: 9.9
     },
@@ -119,7 +119,7 @@ export const coffeeList = [
             'Special',
             'With milk'
         ],
-        name: 'Chocolate Quente',
+        name: 'Hot Chocolate',
         description: 'Drink made with chocolate dissolved in hot milk and coffee',
         price: 9.9
     },
@@ -131,7 +131,7 @@ export const coffeeList = [
             'Alcoholic',
             'Cold'
         ],
-        name: 'Cubano',
+        name: 'Cuban',
         description: 'Iced espresso drink with rum, cream and mint',
         price: 9.9
     },
@@ -141,7 +141,7 @@ export const coffeeList = [
         type: [
             'Special'
         ],
-        name: 'Havaiano',
+        name: 'Hawaiian',
         description: 'Sweet drink prepared with coffee and coconut milk',
         price: 9.9
     },
@@ -151,7 +151,7 @@ export const coffeeList = [
         type: [
             'Especial'
         ],
-        name: 'Árabe',
+        name: 'Arabic',
         description: 'Drink prepared with Arabic coffee beans and spices',
         price: 9.9
     },
@@ -162,7 +162,7 @@ export const coffeeList = [
             'Especial',
             'Alcoholic'
         ],
-        name: 'Irlandês',
+        name: 'Irish',
         description: 'Drink made from coffee, Irish whiskey, sugar and whipped cream',
         price: 9.9
     }
