@@ -1,7 +1,9 @@
 import { Minus, Plus, ShoppingCart } from '@phosphor-icons/react'
+import { useContext, useState } from 'react'
 import { useTheme } from 'styled-components'
 
 import { ICoffee } from '@/@types/coffee.ts'
+import { CoffeeContext } from '@/contexts/CoffeeContext.tsx'
 import {
     CoffeeImageContainer,
     CoffeeItemActions,
@@ -16,6 +18,19 @@ interface ICoffeeItem {
 }
 export function CoffeeItem({ coffee }: ICoffeeItem) {
     const theme = useTheme()
+    const [itemQuantity, setItemQuantity] = useState(0)
+    const { setCartItems } = useContext(CoffeeContext)
+
+    function handleChangeItemQuantity(quantity: number) {
+        setItemQuantity((prevState) => {
+            return prevState + quantity <= 1 ? 1 : prevState + quantity
+        })
+    }
+
+    function handleAddCart() {
+        setCartItems(coffee.id, itemQuantity)
+    }
+
 
     return (
         <CoffeeItemContainer>
@@ -53,17 +68,17 @@ export function CoffeeItem({ coffee }: ICoffeeItem) {
                         <Minus
                             size={14}
                             color={theme['purple']}
-                            onClick={() => console.log(-1)}
+                            onClick={() => handleChangeItemQuantity(-1)}
                         />
-                        <span>0</span>
+                        <span>{itemQuantity}</span>
                         <Plus
                             size={14}
                             color={theme['purple']}
-                            onClick={() => console.log(1)}
+                            onClick={() => handleChangeItemQuantity(1)}
                         />
                     </ItemQuantitySelector>
 
-                    <button onClick={() => console.log('add to cart')}>
+                    <button onClick={handleAddCart} disabled={itemQuantity === 0}>
                         <ShoppingCart color="#fff" weight="fill" size={22} />
                     </button>
                 </div>

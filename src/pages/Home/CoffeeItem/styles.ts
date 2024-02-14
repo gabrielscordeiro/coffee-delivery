@@ -82,6 +82,15 @@ export const CoffeeItemActions = styled.div`
         background: ${(props) => props.theme['purple']};
         border-radius: 8px;
         transition: background 0.15s ease;
+      
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.8;
+          
+            &:hover {
+                background: ${(props) => props.theme['purple']};
+            }
+        }
         
         &:hover {
             background: ${(props) => props.theme['purple-dark']};

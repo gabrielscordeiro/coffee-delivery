@@ -1,10 +1,17 @@
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
+import { useContext } from 'react'
 
 import { HeaderContainer, HeaderInfo } from '@/components/header/styles'
+import { CoffeeContext } from '@/contexts/CoffeeContext'
 
 import logo from '../../assets/logo.svg'
 
 export function Header() {
+    const { cart } = useContext(CoffeeContext)
+    const cartLength = cart ? Object.keys(cart).length : 0
+
+    console.log(cart)
+
     return (
         <HeaderContainer>
             <div>
@@ -16,7 +23,11 @@ export function Header() {
                     Rio do sul, SC
                 </div>
                 <div className="headerInfo cart">
-                    <ShoppingCart weight="fill" size={22}/>
+                    <ShoppingCart weight="fill" size={22} />
+
+                    {!!cartLength && (
+                        <div className="cartCount">{cartLength}</div>
+                    )}
                 </div>
             </HeaderInfo>
         </HeaderContainer>

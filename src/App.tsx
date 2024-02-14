@@ -2,6 +2,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { RouterProvider } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
+import { CoffeeContextProvider } from '@/contexts/CoffeeContext'
 import { GlobalStyle } from '@/styles/global'
 import { defaultTheme } from '@/styles/themes/default'
 
@@ -15,7 +16,9 @@ function App() {
                 <GlobalStyle />
                 <Helmet titleTemplate="%s | Coffee Delivery" />
 
-                <RouterProvider router={router} />
+                <CoffeeContextProvider>
+                    <RouterProvider router={router} />
+                </CoffeeContextProvider>
             </ThemeProvider>
         </HelmetProvider>
     )

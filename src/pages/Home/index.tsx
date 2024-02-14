@@ -16,7 +16,10 @@ export function Home() {
 
                 <CoffeeList>
                     {coffeeList.map(coffee => (
-                        <CoffeeItem coffee={coffee} />
+                        <CoffeeItem
+                            key={coffee.id}
+                            coffee={coffee}
+                        />
                     ))}
                 </CoffeeList>
             </CoffeeListContainer>
