@@ -85,7 +85,7 @@ export const CoffeeItemActions = styled.div`
       
         &:disabled {
             cursor: not-allowed;
-            opacity: 0.8;
+            opacity: 0.5;
           
             &:hover {
                 background: ${(props) => props.theme['purple']};
@@ -127,4 +127,9 @@ export const ItemQuantitySelector = styled.div`
     svg {
         cursor: pointer;
     }
+  
+  .quantity {
+      width: 20px;
+      text-align: center;
+  }
 `

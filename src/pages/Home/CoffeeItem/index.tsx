@@ -1,5 +1,6 @@
 import { Minus, Plus, ShoppingCart } from '@phosphor-icons/react'
 import { useContext, useState } from 'react'
+import toast from 'react-hot-toast'
 import { useTheme } from 'styled-components'
 
 import { ICoffee } from '@/@types/coffee.ts'
@@ -29,6 +30,7 @@ export function CoffeeItem({ coffee }: ICoffeeItem) {
 
     function handleAddCart() {
         setCartItems(coffee.id, itemQuantity)
+        toast.success(`Coffee ${coffee.name} added to cart`)
     }
 
 
@@ -70,7 +72,7 @@ export function CoffeeItem({ coffee }: ICoffeeItem) {
                             color={theme['purple']}
                             onClick={() => handleChangeItemQuantity(-1)}
                         />
-                        <span>{itemQuantity}</span>
+                        <span className="quantity">{itemQuantity}</span>
                         <Plus
                             size={14}
                             color={theme['purple']}

@@ -1,3 +1,5 @@
+import { Helmet } from 'react-helmet-async'
+
 import { coffeeList } from '@/data/coffees.data.ts'
 import { Container } from '@/pages/_layouts/styles'
 import { Banner } from '@/pages/Home/Banner'
@@ -7,6 +9,7 @@ import { CoffeeList, CoffeeListContainer } from '@/pages/Home/style'
 export function Home() {
     return (
         <Container>
+            <Helmet title="Home" />
             <Banner />
 
             <CoffeeListContainer>

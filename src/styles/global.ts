@@ -1,3 +1,4 @@
+import { rem } from 'polished'
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
@@ -11,13 +12,12 @@ export const GlobalStyle = createGlobalStyle`
     background: ${(props) => props.theme.background};
     color: ${(props) => props.theme['base-text']};
     -webkit-font-smoothing: antialiased;
+    padding-bottom: ${rem(100)};
   }
 
   body, input, textarea, button {
     font-family: 'Baloo 2', sans-serif;
-    font-size: 1.5rem;
     line-height: 130%;
-    font-weight: 800;
   }
 
   button {

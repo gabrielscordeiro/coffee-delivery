@@ -1,4 +1,5 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { Toaster } from 'react-hot-toast'
 import { RouterProvider } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
@@ -12,6 +13,8 @@ function App() {
 
     return (
         <HelmetProvider>
+            <Toaster />
+
             <ThemeProvider theme={defaultTheme}>
                 <GlobalStyle />
                 <Helmet titleTemplate="%s | Coffee Delivery" />

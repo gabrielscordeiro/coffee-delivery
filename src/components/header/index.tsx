@@ -13,9 +13,9 @@ export function Header() {
 
     return (
         <HeaderContainer>
-            <div>
+            <NavLink to="/">
                 <img src={logo} alt="Logo" draggable={false}/>
-            </div>
+            </NavLink>
             <HeaderInfo>
                 <div className="headerInfo location">
                     <MapPin weight="fill" size={22} color="#8047F8" />
