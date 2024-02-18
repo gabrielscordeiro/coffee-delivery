@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { mixins } from '@/styles/fonts.ts'
 
-export const FormAddress = styled.form`
+export const FormAddress = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: ${rem(12)};

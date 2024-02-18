@@ -11,8 +11,6 @@ export function Header() {
     const { cart } = useContext(CoffeeContext)
     const cartLength = cart ? Object.keys(cart).length : 0
 
-    console.log(cart)
-
     return (
         <HeaderContainer>
             <div>
