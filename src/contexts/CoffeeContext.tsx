@@ -12,11 +12,17 @@ interface ICoffeeContext {
 export const CoffeeContext = createContext({} as ICoffeeContext)
 
 export function CoffeeContextProvider({ children }: { children: React.ReactNode}) {
-    const [cart, setCart] = useState<ICart>({})
+    const cartItemsStorage = localStorage.getItem('cartItems')
+    const initialValueCart = cartItemsStorage ? JSON.parse(cartItemsStorage) : {}
+
+    const [cart, setCart] = useState<ICart>(initialValueCart)
+
     function setCartItems(coffeeId: number, itemQtd: number) {
         setCart((prevState) => {
             const updatedState = { ...prevState }
             updatedState[coffeeId] = itemQtd
+
+            localStorage.setItem('cartItems', JSON.stringify(updatedState))
 
             return updatedState
         })

@@ -1,13 +1,18 @@
+import { useContext } from 'react'
 import { Helmet } from 'react-helmet-async'
 
-import { Container } from '@/pages/_layouts/styles.ts'
+import { CoffeeContext } from '@/contexts/CoffeeContext.tsx'
+import { CartItem } from '@/pages/Checkout/components/CartItem'
 import { CheckoutAddress } from '@/pages/Checkout/components/CheckoutAddress'
 import { CheckoutPayment } from '@/pages/Checkout/components/CheckoutPayment'
-import { OrderInfo, OrderSteps } from '@/pages/Checkout/style.ts'
+import { ContainerCheckout, OrderInfo, OrderSteps, SelectedCoffees } from '@/pages/Checkout/style.ts'
 
 export function Checkout() {
+    const { cart } = useContext(CoffeeContext)
+
+
     return (
-        <Container>
+        <ContainerCheckout>
             <Helmet title="Checkout" />
             
             <OrderSteps>
@@ -20,8 +25,16 @@ export function Checkout() {
             </OrderSteps>
 
             <OrderInfo>
+                <h2>
+                    Selected coffees
+                </h2>
 
+                <SelectedCoffees>
+                    {cart && Object.keys(cart).map(item => (
+                        <CartItem key={item} itemId={Number(item)} />
+                    ))}
+                </SelectedCoffees>
             </OrderInfo>
-        </Container>
+        </ContainerCheckout>
     )
 }
