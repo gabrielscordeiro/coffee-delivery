@@ -7,6 +7,7 @@ import { CartItem } from '@/pages/Checkout/components/CartItem'
 import { CheckoutAddress } from '@/pages/Checkout/components/CheckoutAddress'
 import { CheckoutPayment } from '@/pages/Checkout/components/CheckoutPayment'
 import {
+    ConfirmOrderButton,
     ContainerCheckout,
     OrderInfo,
     OrderSteps,
@@ -68,6 +69,13 @@ export function Checkout() {
                             <span>{priceFormatter(totalItems + totalEntrega)}</span>
                         </div>
                     </Resume>
+
+                    <ConfirmOrderButton
+                        type="submit"
+                    >
+                        Confirm order
+                    </ConfirmOrderButton>
+
                 </SelectedCoffeesCard>
             </OrderInfo>
         </ContainerCheckout>

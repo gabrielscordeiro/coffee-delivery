@@ -56,3 +56,17 @@ export const Resume = styled.div`
         }
     }
 `
+
+export const ConfirmOrderButton = styled.button`
+    width: 100%;
+    padding: ${rem(12)};
+    border-radius: ${rem(6  )};
+    background: ${(props) => props.theme['yellow']};
+    color: ${(props) => props.theme['white']};
+    text-transform: uppercase;
+    margin-top: ${rem(36)};
+  
+    &:hover {
+      background: ${(props) => props.theme['yellow-dark']};
+    }
+`
