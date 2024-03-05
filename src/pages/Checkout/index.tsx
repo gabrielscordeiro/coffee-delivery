@@ -31,7 +31,7 @@ export function Checkout() {
 
                 <SelectedCoffees>
                     {cart && Object.keys(cart).map(item => (
-                        <CartItem key={item} itemId={Number(item)} />
+                        <CartItem key={item} coffeeItemCart={{[item]: cart[Number(item)]}} />
                     ))}
                 </SelectedCoffees>
             </OrderInfo>

@@ -37,4 +37,5 @@ export const OrderInfo = styled.div`
 export const SelectedCoffees = styled(BaseCard)`
     margin-top: ${rem(12)};
     border-radius: 0 ${rem(40)} 0 ${rem(40)};
+    padding-top: ${rem(8)};
 `
