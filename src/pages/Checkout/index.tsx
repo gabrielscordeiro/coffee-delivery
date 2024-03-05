@@ -2,13 +2,31 @@ import { useContext } from 'react'
 import { Helmet } from 'react-helmet-async'
 
 import { CoffeeContext } from '@/contexts/CoffeeContext.tsx'
+import { coffeeList } from '@/data/coffees.data.ts'
 import { CartItem } from '@/pages/Checkout/components/CartItem'
 import { CheckoutAddress } from '@/pages/Checkout/components/CheckoutAddress'
 import { CheckoutPayment } from '@/pages/Checkout/components/CheckoutPayment'
-import { ContainerCheckout, OrderInfo, OrderSteps, SelectedCoffees } from '@/pages/Checkout/style.ts'
+import {
+    ContainerCheckout,
+    OrderInfo,
+    OrderSteps,
+    Resume,
+    SelectedCoffeesCard
+} from '@/pages/Checkout/style.ts'
+import { priceFormatter } from '@/utils/formatter.ts'
 
 export function Checkout() {
     const { cart } = useContext(CoffeeContext)
+
+    const frete = 3.50
+
+    let totalItems = 0
+    let totalEntrega = 0
+
+    cart && Object.keys(cart).forEach((item) => {
+        totalItems += coffeeList[Number(item)].price * cart[Number(item)]
+        totalEntrega += frete * cart[Number(item)]
+    })
 
 
     return (
@@ -28,12 +46,29 @@ export function Checkout() {
                 <h2>
                     Selected coffees
                 </h2>
+                <SelectedCoffeesCard>
 
-                <SelectedCoffees>
-                    {cart && Object.keys(cart).map(item => (
-                        <CartItem key={item} coffeeItemCart={{[item]: cart[Number(item)]}} />
-                    ))}
-                </SelectedCoffees>
+                    <div>
+                        {cart && Object.keys(cart).map(item => (
+                            <CartItem key={item} coffeeItemCart={{[item]: cart[Number(item)]}} />
+                        ))}
+                    </div>
+
+                    <Resume>
+                        <div className="row">
+                            <span>Total items</span>
+                            <span>{priceFormatter(totalItems)}</span>
+                        </div>
+                        <div className="row">
+                            <span>Delivery</span>
+                            <span>{priceFormatter(totalEntrega)}</span>
+                        </div>
+                        <div className="row total">
+                            <span>Total</span>
+                            <span>{priceFormatter(totalItems + totalEntrega)}</span>
+                        </div>
+                    </Resume>
+                </SelectedCoffeesCard>
             </OrderInfo>
         </ContainerCheckout>
     )

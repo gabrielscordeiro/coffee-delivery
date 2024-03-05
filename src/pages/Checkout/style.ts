@@ -33,9 +33,26 @@ export const OrderInfo = styled.div`
         ${mixins.fonts.titleXS}    
     }  
 `
-
-export const SelectedCoffees = styled(BaseCard)`
+export const SelectedCoffeesCard = styled(BaseCard)`
     margin-top: ${rem(12)};
     border-radius: 0 ${rem(40)} 0 ${rem(40)};
     padding-top: ${rem(8)};
+`
+
+export const Resume = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: ${rem(24)};
+    gap: ${rem(12)};
+  
+    .row {
+        display: flex;
+        justify-content: space-between;
+        ${mixins.fonts.textS}
+      
+        &.total {
+            ${mixins.fonts.textL};
+            font-weight: bold;
+        }
+    }
 `
