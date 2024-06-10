@@ -53,10 +53,10 @@ export function CoffeeItem({coffee, coffeeItemQtd}: ICoffeeItem) {
             <CoffeeItemPrice>
                 <CoffeePrice>
                     <span className="pricePrefix">
-                        R$
+                        US$
                     </span>
                     <span className="price">
-                        {formatCurrency(coffee.price)}
+                        {formatCurrency(coffee.price).replace('$','')}
                     </span>
                 </CoffeePrice>
 
