@@ -1,10 +1,10 @@
-import { rem } from 'polished'
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 32px 0;
 `
 
@@ -15,8 +15,7 @@ export const HeaderInfo = styled.div`
 
     .headerInfo {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        place-items: center;
         height: 2.375rem;
         padding: 0.5rem;
         border-radius: 8px;
@@ -36,17 +35,19 @@ export const HeaderInfo = styled.div`
         background: ${(props) => props.theme['yellow-light']};
         color: ${(props) => props.theme['yellow-dark']};
     }
-
+    
     .cartCount {
         position: absolute;
         top: -8px;
         right: -8px;
         display: flex;
         justify-content: center;
-        align-items: center;    
-        width: ${rem(20)};
-        height: ${rem(20)};
-        font-size: ${rem(12)};    
+        align-items: center;
+        
+        width: 20px;
+        height: 20px;
+        font-size: 0.75rem;
+        
         border-radius: 50%;
         background: ${(props) => props.theme['yellow-dark']};
         color: #fff;

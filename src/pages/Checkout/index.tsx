@@ -1,83 +1,44 @@
 import { useContext } from 'react'
-import { Helmet } from 'react-helmet-async'
+import { useForm } from 'react-hook-form'
 
-import { CoffeeContext } from '@/contexts/CoffeeContext.tsx'
-import { coffeeList } from '@/data/coffees.data.ts'
-import { CartItem } from '@/pages/Checkout/components/CartItem'
-import { CheckoutAddress } from '@/pages/Checkout/components/CheckoutAddress'
-import { CheckoutPayment } from '@/pages/Checkout/components/CheckoutPayment'
-import {
-    ConfirmOrderButton,
-    ContainerCheckout,
-    OrderInfo,
-    OrderSteps,
-    Resume,
-    SelectedCoffeesCard
-} from '@/pages/Checkout/style.ts'
-import { priceFormatter } from '@/utils/formatter.ts'
+import { AddressContext, IAddress } from '../../contexts/AddressContext.tsx'
+import { EnderecoEntrega } from './components/EnderecoEntrega'
+import { Pagamento } from './components/Pagamento'
+import { Resumo } from './components/Resumo'
+import { CheckoutContainer, CheckoutSection, SectionTitle } from './styles.ts'
 
-export function Checkout() {
-    const { cart } = useContext(CoffeeContext)
+interface CheckoutProps {
+    setIsCheckoutDone: any
+}
 
-    const frete = 3.50
+export function Checkout({setIsCheckoutDone}: CheckoutProps) {
+    const { handleSetAddress } = useContext(AddressContext)
 
-    let totalItems = 0
-    let totalEntrega = 0
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm<IAddress>()
 
-    cart && Object.keys(cart).forEach((item) => {
-        totalItems += coffeeList[Number(item)].price * cart[Number(item)]
-        totalEntrega += frete * cart[Number(item)]
-    })
-
+    function onSubmit(data: IAddress) {
+        handleSetAddress(data)
+    }
 
     return (
-        <ContainerCheckout>
-            <Helmet title="Checkout" />
-            
-            <OrderSteps>
-                <h1>
-                    Complete your order
-                </h1>
+        <CheckoutContainer onSubmit={handleSubmit(onSubmit)}>
+            <CheckoutSection>
+                <SectionTitle>Complete your order</SectionTitle>
+                <EnderecoEntrega
+                    register={register}
+                    errors={errors}
+                />
+                <Pagamento/>
+            </CheckoutSection>
 
-                <CheckoutAddress />
-                <CheckoutPayment />
-            </OrderSteps>
-
-            <OrderInfo>
-                <h2>
-                    Selected coffees
-                </h2>
-                <SelectedCoffeesCard>
-
-                    <div>
-                        {cart && Object.keys(cart).map(item => (
-                            <CartItem key={item} coffeeItemCart={{[item]: cart[Number(item)]}} />
-                        ))}
-                    </div>
-
-                    <Resume>
-                        <div className="row">
-                            <span>Total items</span>
-                            <span>{priceFormatter(totalItems)}</span>
-                        </div>
-                        <div className="row">
-                            <span>Delivery</span>
-                            <span>{priceFormatter(totalEntrega)}</span>
-                        </div>
-                        <div className="row total">
-                            <span>Total</span>
-                            <span>{priceFormatter(totalItems + totalEntrega)}</span>
-                        </div>
-                    </Resume>
-
-                    <ConfirmOrderButton
-                        type="submit"
-                    >
-                        Confirm order
-                    </ConfirmOrderButton>
-
-                </SelectedCoffeesCard>
-            </OrderInfo>
-        </ContainerCheckout>
+            <CheckoutSection>
+                <SectionTitle>Selected Coffees</SectionTitle>
+                <Resumo errors={errors} setIsCheckoutDone={setIsCheckoutDone} />
+            </CheckoutSection>
+        </CheckoutContainer>
     )
 }

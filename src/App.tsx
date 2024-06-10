@@ -1,29 +1,50 @@
-import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { useState } from 'react'
 import { Toaster } from 'react-hot-toast'
-import { RouterProvider } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
-import { CoffeeContextProvider } from '@/contexts/CoffeeContext'
-import { GlobalStyle } from '@/styles/global'
-import { defaultTheme } from '@/styles/themes/default'
-
-import { router } from './routes'
+import { AddressContextProvider } from './contexts/AddressContext.tsx'
+import { CoffeeContextProvider } from './contexts/CoffeeContext.tsx'
+import { PaymentContextProvider } from './contexts/PaymentContext.tsx'
+import { DefaultLayout } from './layouts/DefaultLayout'
+import { Checkout } from './Pages/Checkout'
+import { Done } from './Pages/Done'
+import { Home } from './Pages/Home'
+import { GlobalStyle } from './styles/global.ts'
+import { defaultTheme } from './styles/themes/default.ts'
 
 function App() {
+    const [isCheckoutDone, setIsCheckoutDone] = useState(!!localStorage.getItem('checkoutDoneData'))
 
     return (
-        <HelmetProvider>
-            <Toaster />
-
-            <ThemeProvider theme={defaultTheme}>
-                <GlobalStyle />
-                <Helmet titleTemplate="%s | Coffee Delivery" />
-
+        <ThemeProvider theme={defaultTheme}>
+            <BrowserRouter>
                 <CoffeeContextProvider>
-                    <RouterProvider router={router} />
+                    <AddressContextProvider>
+                        <PaymentContextProvider>
+                            <Routes>
+                                <Route path="/" element={<DefaultLayout/>}>
+                                    <Route path="/" element={<Home />} />
+                                    <Route path="/checkout" element={<Checkout setIsCheckoutDone={setIsCheckoutDone} />} />
+                                    <Route path="/checkout/done" element={
+                                        isCheckoutDone ?
+                                            <Done /> :
+                                            <Navigate to="/checkout" />
+                                    } />
+                                </Route>
+                            </Routes>
+                        </PaymentContextProvider>
+                    </AddressContextProvider>
                 </CoffeeContextProvider>
-            </ThemeProvider>
-        </HelmetProvider>
+            </BrowserRouter>
+
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
+
+            <GlobalStyle />
+        </ThemeProvider>
     )
 }
 

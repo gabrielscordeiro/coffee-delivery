@@ -1,7 +1,3 @@
 {
-  "extends": "@mzrd/eslint-config",
-    "plugins": ["simple-import-sort"],
-    "rules": {
-  "simple-import-sort/imports": "error"
-}
+  "extends": "@mzrd/eslint-config"
 }

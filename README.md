@@ -1,5 +1,11 @@
-# Coffee Delivery - By Rocketseat
+# Coffee Delivery
 
-Application to manage a shopping cart for a fictional coffee shop
+Application to manage a fictional coffee shop.
 
-check the project in coffee-delivery.gabrielcordeiro.dev
+* Shopping Cart
+* User Location
+* Checkout
+* State Management
+* ContextAPI
+* LocalStorage 
+

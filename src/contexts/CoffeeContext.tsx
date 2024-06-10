@@ -1,7 +1,7 @@
-import { createContext, useState } from 'react'
+import { createContext, ReactNode, useState } from 'react'
 import toast from 'react-hot-toast'
 
-import { coffeeList } from '@/data/coffees.data.ts'
+import { coffees } from '../data/coffees.ts'
 
 export interface ICart {
     [key: number]: number
@@ -9,28 +9,33 @@ export interface ICart {
 
 interface ICoffeeContext {
     cart: ICart | undefined
-    setCartItems: (coffeeId: number, quantity: number) => void
+    setCartItems: (coffeeId: number, qtd: number) => void
     removeCartItem: (coffeeId: number) => void
     changeCartItemQuantity: (coffeeId: number, qtd: number) => void
+    cleanCart: () => void
 }
 
 export const CoffeeContext = createContext({} as ICoffeeContext)
 
-export function CoffeeContextProvider({ children }: { children: React.ReactNode}) {
-    const cartItemsStorage = localStorage.getItem('cartItems')
-    const initialValueCart = cartItemsStorage ? JSON.parse(cartItemsStorage) : {}
+interface ICoffeeContextProviderProps {
+    children: ReactNode
+}
 
-    const [cart, setCart] = useState<ICart>(initialValueCart)
+export function CoffeeContextProvider({children}: ICoffeeContextProviderProps) {
+    const savedCart = localStorage.getItem('cartItems')
+    const initialCart = savedCart ? JSON.parse(savedCart) : {}
+    const [cart, setCart] = useState<ICart>(initialCart)
 
     function setCartItems(coffeeId: number, itemQtd: number) {
         setCart((prevState) => {
-            const updatedState = { ...prevState }
-            updatedState[coffeeId] = itemQtd
+            const newState = { ...prevState }
+            newState[coffeeId] = itemQtd
 
-            saveItemsInStorage(updatedState)
-
-            return updatedState
+            saveItemsInStorage(newState)
+            return newState
         })
+
+        toast.success(`${coffees[coffeeId].name} added to cart!`)
     }
 
     function removeCartItem(coffeeId: number) {
@@ -42,7 +47,7 @@ export function CoffeeContextProvider({ children }: { children: React.ReactNode}
             return newState
         })
 
-        toast.success(`Item ${coffeeList[coffeeId].name} removed from cart!`)
+        toast.success(`Item ${coffees[coffeeId].name} removed from cart!`)
     }
 
     function changeCartItemQuantity(coffeeId: number, qtd: number) {
@@ -59,12 +64,18 @@ export function CoffeeContextProvider({ children }: { children: React.ReactNode}
         localStorage.setItem('cartItems', JSON.stringify(newState))
     }
 
+    function cleanCart() {
+        localStorage.removeItem('cartItems')
+        setCart({})
+    }
+
     return (
         <CoffeeContext.Provider value={{
             cart,
             setCartItems,
             removeCartItem,
             changeCartItemQuantity,
+            cleanCart
         }}>
             {children}
         </CoffeeContext.Provider>

@@ -1,31 +1,11 @@
-import { Helmet } from 'react-helmet-async'
-
-import { coffeeList } from '@/data/coffees.data.ts'
-import { Container } from '@/pages/_layouts/styles'
-import { Banner } from '@/pages/Home/Banner'
-import { CoffeeItem } from '@/pages/Home/CoffeeItem'
-import { CoffeeList, CoffeeListContainer } from '@/pages/Home/style'
+import { BannerArea } from './components/BannerArea'
+import { CoffeeList } from './components/CoffeeList'
 
 export function Home() {
     return (
-        <Container>
-            <Helmet title="Home" />
-            <Banner />
-
-            <CoffeeListContainer>
-                <h2>
-                    Our coffees
-                </h2>
-
-                <CoffeeList>
-                    {coffeeList.map(coffee => (
-                        <CoffeeItem
-                            key={coffee.id}
-                            coffee={coffee}
-                        />
-                    ))}
-                </CoffeeList>
-            </CoffeeListContainer>
-        </Container>
+        <>
+            <BannerArea />
+            <CoffeeList />
+        </>
     )
 }
