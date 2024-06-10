@@ -22,7 +22,7 @@ export function CartItem({coffeeItemCart}: CartItemProps) {
                 <img src={`/coffees/${coffeeItemData.image}.png`} alt="" draggable={false} />
 
                 <div className="titleActionsArea">
-                    <span className="itemTitle">{coffeeItemData.name}</span>
+                    <span className="itemTitle">{coffeeItemData.title}</span>
 
                     <ActionsAreaWrapper>
                         <div className="quantityArea">

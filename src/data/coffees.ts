@@ -22,7 +22,7 @@ export const coffees = [
         type: [
             'Traditional '
         ],
-        name: 'Espresso',
+        title: 'Espresso',
         description: 'Traditional coffee made with hot water and ground beans',
         price: 7.95
     },
@@ -32,7 +32,7 @@ export const coffees = [
         type: [
             'Traditional'
         ],
-        name: 'American',
+        title: 'American',
         description: 'Diluted espresso, less intense than traditional',
         price: 10
     },
@@ -42,7 +42,7 @@ export const coffees = [
         type: [
             'Traditional'
         ],
-        name: 'Coffee Breve',
+        title: 'Coffee Breve',
         description: 'Traditional espresso with creamy foam',
         price: 8.99
     },
@@ -53,7 +53,7 @@ export const coffees = [
             'Traditional',
             'Cold'
         ],
-        name: 'Iced Coffee',
+        title: 'Iced Coffee',
         description: 'Drink prepared with espresso and ice cubes',
         price: 9.99
     },
@@ -64,7 +64,7 @@ export const coffees = [
             'Traditional',
             'With mild'
         ],
-        name: 'Cafe au Lait',
+        title: 'Cafe au Lait',
         description: 'Half and half traditional espresso with steamed milk',
         price: 12.49
     },
@@ -75,7 +75,7 @@ export const coffees = [
             'Traditional',
             'With milk'
         ],
-        name: 'Latte',
+        title: 'Latte',
         description: 'A shot of espresso with double the milk and creamy foam',
         price: 11.49
     },
@@ -86,7 +86,7 @@ export const coffees = [
             'Traditional',
             'With milk'
         ],
-        name: 'Capuccino',
+        title: 'Capuccino',
         description: 'Cinnamon drink made from equal doses of coffee, milk and foam',
         price: 11.89
     },
@@ -97,7 +97,7 @@ export const coffees = [
             'Traditional',
             'With milk'
         ],
-        name: 'Macchiato',
+        title: 'Macchiato',
         description: 'Café Espresso mixed with some hot milk and froth',
         price: 9.99
     },
@@ -108,7 +108,7 @@ export const coffees = [
             'Traditional',
             'With milk'
         ],
-        name: 'Mocaccino',
+        title: 'Mocaccino',
         description: 'Espresso with chocolate syrup, little milk and foam',
         price: 11.39
     },
@@ -119,7 +119,7 @@ export const coffees = [
             'Special',
             'With milk'
         ],
-        name: 'Hot Chocolate',
+        title: 'Hot Chocolate',
         description: 'Drink made with chocolate dissolved in hot milk and coffee',
         price: 9.19
     },
@@ -131,7 +131,7 @@ export const coffees = [
             'Alcoholic',
             'Cold'
         ],
-        name: 'Cuban',
+        title: 'Cuban',
         description: 'Iced espresso drink with rum, cream and mint',
         price: 8.99
     },
@@ -141,7 +141,7 @@ export const coffees = [
         type: [
             'Special'
         ],
-        name: 'Hawaiian',
+        title: 'Hawaiian',
         description: 'Sweet drink prepared with coffee and coconut milk',
         price: 15.99
     },
@@ -151,7 +151,7 @@ export const coffees = [
         type: [
             'Especial'
         ],
-        name: 'Arabic',
+        title: 'Arabic',
         description: 'Drink prepared with Arabic coffee beans and spices',
         price: 15.49
     },
@@ -162,7 +162,7 @@ export const coffees = [
             'Especial',
             'Alcoholic'
         ],
-        name: 'Irish',
+        title: 'Irish',
         description: 'Drink made from coffee, Irish whiskey, sugar and whipped cream',
         price: 14.39
     }

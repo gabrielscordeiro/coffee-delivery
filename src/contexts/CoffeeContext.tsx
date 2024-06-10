@@ -35,7 +35,7 @@ export function CoffeeContextProvider({children}: ICoffeeContextProviderProps) {
             return newState
         })
 
-        toast.success(`${coffees[coffeeId].name} added to cart!`)
+        toast.success(`${coffees[coffeeId].title} added to cart!`)
     }
 
     function removeCartItem(coffeeId: number) {
@@ -47,7 +47,7 @@ export function CoffeeContextProvider({children}: ICoffeeContextProviderProps) {
             return newState
         })
 
-        toast.success(`Item ${coffees[coffeeId].name} removed from cart!`)
+        toast.success(`Item ${coffees[coffeeId].title} removed from cart!`)
     }
 
     function changeCartItemQuantity(coffeeId: number, qtd: number) {

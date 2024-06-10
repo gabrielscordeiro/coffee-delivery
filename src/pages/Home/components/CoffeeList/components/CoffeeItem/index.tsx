@@ -10,7 +10,8 @@ import {
     CoffeeItemContainer,
     CoffeeItemPrice,
     CoffeeItemTypesWrapper,
-    CoffeePrice, ItemQuantitySelector
+    CoffeePrice,
+    ItemQuantitySelector
 } from './styles.ts'
 
 interface ICoffeeItem {
